@@ -25,9 +25,12 @@ class Document(Span):
         json_data['annotations'] = annotations
 
         if do_sentence_splitting:
-            pass # TODO add sentence splitting
+            pass  # TODO add sentence splitting
 
         return cls(**json_data)
+
+    def to_json(self):
+        pass  # TODO implement me after there is a test for me
 
 
 class NotATeXooDocumentException(Exception):

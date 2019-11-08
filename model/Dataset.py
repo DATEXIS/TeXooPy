@@ -14,6 +14,9 @@ class Dataset:
             dataset.documents.append(Document.from_json(doc_json_data))
         return dataset
 
+    def to_json(self):
+        pass  # TODO implement me after there is a test for me
+
     def __str__(self):
         return "Dataset {}, name: {}, language: {}, # documents: {}".format(
             self.__hash__(),
