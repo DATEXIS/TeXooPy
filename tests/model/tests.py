@@ -76,8 +76,9 @@ class MentionAnnotationTest(unittest.TestCase):
 
     def setUp(self) -> None:
         with open('res/texoo_dataset.json', 'r') as test_file:
-            self.mention_ann_1 = Annotation.from_json(json.load(test_file)['documents'][0]['annotations'][0])
-            self.mention_ann_2 = Annotation.from_json(json.load(test_file)['documents'][0]['annotations'][1])
+            json_data = json.load(test_file)
+            self.mention_ann_1 = Annotation.from_json(json_data['documents'][0]['annotations'][0])
+            self.mention_ann_2 = Annotation.from_json(json_data['documents'][0]['annotations'][1])
 
     def test_mention_ann_class(self):
         self.assertIsInstance(self.mention_ann_1, MentionAnnotation)
