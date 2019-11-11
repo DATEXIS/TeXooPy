@@ -1,4 +1,4 @@
-from model.Document import Document
+from texoopy.model.Document import Document
 
 
 class Dataset:

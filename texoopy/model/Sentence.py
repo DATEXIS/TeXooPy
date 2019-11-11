@@ -1,4 +1,4 @@
-from model.Span import Span
+from texoopy.model.Span import Span
 
 
 class Sentence(Span):

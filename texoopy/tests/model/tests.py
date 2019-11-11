@@ -1,12 +1,12 @@
 import json
 import unittest
 
-from model.Annotation import Annotation
-from model.Document import Document, NotATeXooDocumentException
-from model.MentionAnnotation import MentionAnnotation
-from model.NamedEntityAnnotation import NamedEntityAnnotation
-from model.Span import Span
-from model.Dataset import Dataset
+from texoopy.model.Annotation import Annotation
+from texoopy.model.Document import Document, NotATeXooDocumentException
+from texoopy.model.MentionAnnotation import MentionAnnotation
+from texoopy.model.NamedEntityAnnotation import NamedEntityAnnotation
+from texoopy.model.Span import Span
+from texoopy.model.Dataset import Dataset
 
 
 class DatasetTest(unittest.TestCase):

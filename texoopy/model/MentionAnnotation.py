@@ -1,7 +1,7 @@
-from model.Annotation import Annotation
+from texoopy.model.Annotation import Annotation
 
 
-class NamedEntityAnnotation(Annotation):
+class MentionAnnotation(Annotation):
     def __init__(self, **kwargs):
         super().__init__()
         # TODO IMPLEMENT ME

@@ -1,5 +1,5 @@
-from model.Annotation import Annotation
-from model.Span import Span
+from texoopy.model.Annotation import Annotation
+from texoopy.model.Span import Span
 
 
 class Document(Span):
