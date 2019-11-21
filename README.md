@@ -13,7 +13,7 @@ The goal is not to have a holistic representation of the full TeXoo model but ra
 | Span                  | :heavy_check_mark: | :x:                | :x:        |
 | Sentence              | :x:                | :x:                | :x:        |
 | Token                 | :x:                | :x:                | :x:        |
-| Annotation            | :heavy_check_mark: | :heavy_check_mark: | :x:        |
-| MentionAnnotation     | :heavy_check_mark: | :heavy_check_mark: | :x:        |
-| NamedEntityAnnotation | :heavy_check_mark: | :heavy_check_mark: | :x:        |
+| Annotation            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| MentionAnnotation     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| NamedEntityAnnotation | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 

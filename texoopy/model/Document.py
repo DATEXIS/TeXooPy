@@ -1,3 +1,5 @@
+import json
+
 from texoopy.model.Annotation import Annotation
 from texoopy.model.Span import Span
 
@@ -30,8 +32,11 @@ class Document(Span):
         return cls(**json_data)
 
     def to_json(self):
-        pass  # TODO implement me after there is a test for me
+        return json.dumps(self.to_texoo_dict(), default=lambda o: o.to_texoo_dict())
 
+    def to_texoo_dict(self) -> dict:
+        content = super().to_texoo_dict()
+        return content
 
 class NotATeXooDocumentException(Exception):
     pass

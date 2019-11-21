@@ -1,3 +1,5 @@
+import json
+
 from texoopy.model.Span import Span
 
 
@@ -7,7 +9,6 @@ class Annotation(Span):
         self.source: str = kwargs.get('source')
         self.text: str = kwargs.get('text')
         self.begin: int = kwargs.get('begin')
-        self.end: int = kwargs.get('end')
         self.confidence: float = kwargs.get('confidence')
 
     @classmethod
@@ -22,4 +23,8 @@ class Annotation(Span):
             raise (Exception("Annotation type not supported!"))
 
     def to_json(self):
-        pass  # TODO implement me after there is a test for me
+        return json.dumps(self.to_texoo_dict(), default=lambda o: o.to_texoo_dict())
+
+    def to_texoo_dict(self) -> dict:
+        content = super().to_texoo_dict()
+        return content
