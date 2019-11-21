@@ -10,9 +10,10 @@ The goal is not to have a holistic representation of the full TeXoo model but ra
 | --------------------- | ------------------ | ------------------ | ---------- |
 | Dataset               | :heavy_check_mark: | :heavy_check_mark: | :x:        |
 | Document              | :heavy_check_mark: | :heavy_check_mark: | :x:        |
-| Span                  | :heavy_check_mark: | :x:                | (1)        |
-| Sentence              | :x:                | (1)                | (1)        |
-| Token                 | :x:                | (1)                | (1)        |
+| Span                  | :heavy_check_mark: | :x:                | :x:        |
+| Sentence              | :x:                | :x:                | :x:        |
+| Token                 | :x:                | :x:                | :x:        |
 | Annotation            | :heavy_check_mark: | :heavy_check_mark: | :x:        |
 | MentionAnnotation     | :heavy_check_mark: | :heavy_check_mark: | :x:        |
 | NamedEntityAnnotation | :heavy_check_mark: | :heavy_check_mark: | :x:        |
+
