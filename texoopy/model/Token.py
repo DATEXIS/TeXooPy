@@ -11,4 +11,8 @@ class Token(Span):
         return cls(**json_data)  # TODO IMPLEMENT ME
 
     def to_json(self):
-        pass  # TODO implement me after there is a test for me
+        return json.dumps(self.to_texoo_dict())
+        # TODO implement a test for me
+
+    def to_texoo_dict(self):
+        return super().to_texoo_dict()
