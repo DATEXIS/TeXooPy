@@ -15,7 +15,7 @@ class Dataset:
         return dataset
 
     def to_json(self):
-        pass  # TODO implement me after there is a test for me
+        return json.dumps(self.to_texoo_dict(), default=lambda o: o.to_texoo_dict())
 
     def __str__(self):
         return "Dataset {}, name: {}, language: {}, # documents: {}".format(
