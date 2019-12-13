@@ -24,3 +24,6 @@ class Dataset:
             self.language,
             len(self.documents)
         )
+    
+    def to_texoo_dict(self):
+        return self.__dict__
