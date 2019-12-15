@@ -7,5 +7,12 @@ class Span(object):
 
     def to_texoo_dict(self) -> dict:
         content = self.__dict__
-        content.pop('uid')
+        #content.pop('uid')
         return content
+
+    @classmethod
+    def from_json(cls, json_data: dict):
+        return cls(**json_data)
+    
+    def to_json(self):
+        return json.dumps(self.to_texoo_dict())
