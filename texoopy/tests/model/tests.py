@@ -39,7 +39,7 @@ class DocumentTest(unittest.TestCase):
             self.dataset_json_dict = json.load(test_file)
             self.document_json_dict = copy.deepcopy(self.dataset_json_dict['documents'][0])
             self.dataset = Dataset.from_json(self.dataset_json_dict)
-            self.document_1 = Document.from_json(self.document_json_dict)
+            self.document_1 = Document.from_json(copy.deepcopy(self.document_json_dict))
 
     def test_document_instances(self):
         self.assertIsInstance(self.dataset.documents[0], Document)
@@ -79,6 +79,9 @@ class DocumentTest(unittest.TestCase):
             Document.from_json({'class': 'Span'})
 
     def test_document_to_json(self):
+        orig = self.document_json_dict  # TODO RMD
+        parsed = json.loads(self.document_1.to_json()) # TODO RMD
+
         self.assertEqual(self.document_json_dict, json.loads(self.document_1.to_json()))
 
 

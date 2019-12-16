@@ -1,3 +1,7 @@
+import copy
+import json
+
+
 class Span(object):
     def __init__(self, **kwargs):
         self.uid = kwargs.get('uid', None)
@@ -6,8 +10,8 @@ class Span(object):
         self.text = kwargs.get('text', "")
 
     def to_texoo_dict(self) -> dict:
-        content = self.__dict__
-        #content.pop('uid')
+        content = copy.deepcopy(self.__dict__)
+        content.pop('uid')
         return content
 
     @classmethod

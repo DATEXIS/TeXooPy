@@ -1,4 +1,7 @@
+import json
+
 from texoopy.model.Span import Span
+from texoopy.model.Token import Token
 
 
 class Sentence(Span):

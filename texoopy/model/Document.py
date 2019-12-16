@@ -32,7 +32,9 @@ class Document(Span):
         return cls(**json_data)
 
     def to_json(self):
-        return json.dumps(self.to_texoo_dict(), default=lambda o: o.to_texoo_dict())
+        content = self.to_texoo_dict()
+        content['class'] = 'Document'
+        return json.dumps(content, default=lambda o: o.to_texoo_dict())
 
     def to_texoo_dict(self) -> dict:
         content = super().to_texoo_dict()
