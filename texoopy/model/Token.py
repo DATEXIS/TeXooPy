@@ -1,3 +1,5 @@
+import json
+
 from texoopy.model.Span import Span
 
 

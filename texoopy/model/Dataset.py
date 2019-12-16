@@ -1,3 +1,6 @@
+import copy
+import json
+
 from texoopy.model.Document import Document
 
 
@@ -26,4 +29,4 @@ class Dataset:
         )
     
     def to_texoo_dict(self):
-        return self.__dict__
+        return copy.deepcopy(self.__dict__)
