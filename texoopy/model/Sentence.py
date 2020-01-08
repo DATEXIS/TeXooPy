@@ -1,3 +1,4 @@
+import copy
 import json
 
 from texoopy.model.Span import Span
@@ -12,6 +13,7 @@ class Sentence(Span):
 
     @classmethod
     def from_json(cls, json_data: dict, do_tokenization=False):
+        json_data = copy.deepcopy(json_data)
         if do_tokenization:
             pass  # TODO implement me (later)
         token_json_data = json_data.pop('tokens', [])

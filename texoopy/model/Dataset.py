@@ -9,9 +9,11 @@ class Dataset:
         self.name: str = kwargs.get('name')
         self.language: str = kwargs.get('language')
         self.documents: list = []
+        self.queries: list = []
 
     @classmethod
     def from_json(cls, json_data: dict):
+        json_data = copy.deepcopy(json_data)
         dataset = cls(**json_data)
         for doc_json_data in json_data.get('documents', []):
             dataset.documents.append(Document.from_json(doc_json_data))
