@@ -1,3 +1,4 @@
+import copy
 import json
 
 from texoopy.model.Span import Span
@@ -13,6 +14,7 @@ class Annotation(Span):
 
     @classmethod
     def from_json(cls, json_data: dict):
+        json_data = copy.deepcopy(json_data)
         from texoopy.model.MentionAnnotation import MentionAnnotation
         from texoopy.model.NamedEntityAnnotation import NamedEntityAnnotation
         if json_data['class'] == 'MentionAnnotation':

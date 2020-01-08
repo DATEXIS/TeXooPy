@@ -14,7 +14,8 @@ class DatasetTest(unittest.TestCase):
 
     def setUp(self) -> None:
         with open('res/texoo_dataset.json', 'r') as test_file:
-            self.dataset = Dataset.from_json(json.load(test_file))
+            self.dataset_json_dict = json.load(test_file)
+            self.dataset = Dataset.from_json(self.dataset_json_dict)
 
     def test_dataset_instance(self):
         self.assertIsInstance(self.dataset, Dataset)
@@ -29,6 +30,9 @@ class DatasetTest(unittest.TestCase):
         self.assertEqual(3, len(self.dataset.documents))
 
     def test_dataset_to_json(self):
+        self.assertEqual(self.dataset_json_dict, json.loads(self.dataset.to_json()))
+
+    def test_dataset_toJson_mutability(self):
         pass  # TODO IMPLEMENT ME
 
 
@@ -79,10 +83,16 @@ class DocumentTest(unittest.TestCase):
             Document.from_json({'class': 'Span'})
 
     def test_document_to_json(self):
-        orig = self.document_json_dict  # TODO RMD
-        parsed = json.loads(self.document_1.to_json()) # TODO RMD
-
         self.assertEqual(self.document_json_dict, json.loads(self.document_1.to_json()))
+
+    def test_document_toJson_mutability(self):
+        before = copy.deepcopy(self.document_1.__dict__)
+        self.document_1.to_json()
+        after = copy.deepcopy(self.document_1.__dict__)
+        # Annotations should get tested in a separate test so here we only compare the correct count.
+        before['annotations'] = len(before.get('annotations'))
+        after['annotations'] = len(after.get('annotations'))
+        self.assertEqual(before, after)
 
 
 class MentionAnnotationTest(unittest.TestCase):
@@ -119,6 +129,9 @@ class MentionAnnotationTest(unittest.TestCase):
     def test_mention_ann_to_json(self):
         self.assertEqual(self.mention_ann_1_json_dict, json.loads(self.mention_ann_1.to_json()))
 
+    def test_mention_ann_toJson_mutability(self):
+        pass  # TODO IMPLEMENT ME
+
 
 class NamedEntityAnnotationTest(unittest.TestCase):
 
@@ -150,6 +163,9 @@ class NamedEntityAnnotationTest(unittest.TestCase):
 
     def test_named_ann_to_json(self):
         self.assertEqual(self.named_entity_ann_json_dict, json.loads(self.named_entity_ann.to_json()))
+
+    def test_named_ann_toJson_mutability(self):
+        pass  # TODO IMPLEMENT ME
 
 
 if __name__ == '__main__':

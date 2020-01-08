@@ -1,3 +1,4 @@
+import copy
 import json
 
 from texoopy.model.Annotation import Annotation
@@ -12,6 +13,7 @@ class MentionAnnotation(Annotation):
 
     @classmethod
     def from_json(cls, json_data: dict):
+        json_data = copy.deepcopy(json_data)
         return cls(**json_data)
 
     def to_json(self):
