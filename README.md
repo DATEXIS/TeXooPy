@@ -8,8 +8,8 @@ The goal is not to have a holistic representation of the full TeXoo model but ra
 
 | Class                 | Attributes         | .from_json()       | .to_json() |
 | --------------------- | ------------------ | ------------------ | ---------- |
-| Dataset               | :heavy_check_mark: | :heavy_check_mark: | :x:        |
-| Document              | :heavy_check_mark: | :heavy_check_mark: | :x:        |
+| Dataset               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Document              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Span                  | :heavy_check_mark: | :x:                | :x:        |
 | Sentence              | :x:                | :x:                | :x:        |
 | Token                 | :x:                | :x:                | :x:        |
