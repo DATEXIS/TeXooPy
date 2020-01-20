@@ -1,7 +1,7 @@
 import copy
 import json
 
-from texoopy.model.Document import Document
+from .Document import Document
 
 
 class Dataset:

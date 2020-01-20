@@ -1,7 +1,7 @@
 import copy
 import json
 
-from texoopy.model.Annotation import Annotation
+from .Annotation import Annotation
 
 
 class NamedEntityAnnotation(Annotation):

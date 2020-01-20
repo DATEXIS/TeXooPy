@@ -1,8 +1,8 @@
 import copy
 import json
 
-from texoopy.model.Annotation import Annotation
-from texoopy.model.Span import Span
+from .Annotation import Annotation
+from .Span import Span
 
 
 class Document(Span):
