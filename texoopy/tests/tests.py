@@ -1,19 +1,22 @@
 import copy
 import json
+import os
 import unittest
 
-from texoopy.model.Annotation import Annotation
-from texoopy.model.Document import Document, NotATeXooDocumentException
-from texoopy.model.MentionAnnotation import MentionAnnotation
-from texoopy.model.NamedEntityAnnotation import NamedEntityAnnotation
-from texoopy.model.Span import Span
-from texoopy.model.Dataset import Dataset
+from ..model.Annotation import Annotation
+from ..model.Document import Document, NotATeXooDocumentException
+from ..model.MentionAnnotation import MentionAnnotation
+from ..model.NamedEntityAnnotation import NamedEntityAnnotation
+from ..model.Span import Span
+from ..model.Dataset import Dataset
+
+TESTDATA_FILENAME = os.path.join(os.path.dirname(__file__), 'res', 'texoo_dataset.json')
 
 
 class DatasetTest(unittest.TestCase):
 
     def setUp(self) -> None:
-        with open('res/texoo_dataset.json', 'r') as test_file:
+        with open(TESTDATA_FILENAME, 'r') as test_file:
             self.dataset_json_dict = json.load(test_file)
             self.dataset = Dataset.from_json(self.dataset_json_dict)
 
@@ -39,7 +42,7 @@ class DatasetTest(unittest.TestCase):
 class DocumentTest(unittest.TestCase):
 
     def setUp(self) -> None:
-        with open('res/texoo_dataset.json', 'r') as test_file:
+        with open(TESTDATA_FILENAME, 'r') as test_file:
             self.dataset_json_dict = json.load(test_file)
             self.document_json_dict = copy.deepcopy(self.dataset_json_dict['documents'][0])
             self.dataset = Dataset.from_json(self.dataset_json_dict)
@@ -98,7 +101,7 @@ class DocumentTest(unittest.TestCase):
 class MentionAnnotationTest(unittest.TestCase):
 
     def setUp(self) -> None:
-        with open('res/texoo_dataset.json', 'r') as test_file:
+        with open(TESTDATA_FILENAME, 'r') as test_file:
             json_data = json.load(test_file)
             self.mention_ann_1_json_dict = json_data['documents'][0]['annotations'][0]
             self.mention_ann_1 = Annotation.from_json(self.mention_ann_1_json_dict)
@@ -136,7 +139,7 @@ class MentionAnnotationTest(unittest.TestCase):
 class NamedEntityAnnotationTest(unittest.TestCase):
 
     def setUp(self) -> None:
-        with open('res/texoo_dataset.json', 'r') as test_file:
+        with open(TESTDATA_FILENAME, 'r') as test_file:
             self.named_entity_ann_json_dict = json.load(test_file)['documents'][0]['annotations'][2]
             self.named_entity_ann = Annotation.from_json(self.named_entity_ann_json_dict)
 

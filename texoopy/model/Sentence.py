@@ -1,8 +1,8 @@
 import copy
 import json
 
-from texoopy.model.Span import Span
-from texoopy.model.Token import Token
+from .Span import Span
+from .Token import Token
 
 
 class Sentence(Span):

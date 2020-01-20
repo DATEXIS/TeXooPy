@@ -1,7 +1,7 @@
 import copy
 import json
 
-from texoopy.model.Span import Span
+from .Span import Span
 
 
 class Annotation(Span):
