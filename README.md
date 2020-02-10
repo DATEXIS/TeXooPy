@@ -17,3 +17,6 @@ The goal is not to have a holistic representation of the full TeXoo model but ra
 | MentionAnnotation     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | NamedEntityAnnotation | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
+## Executing Unit Tests
+
+`python3 -m unittest texoopy/tests/tests.py`
