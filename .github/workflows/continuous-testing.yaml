@@ -1,0 +1,18 @@
+name: Test Everything
+# Workflow is triggernd on any pushes to the repo
+on: [push]
+
+
+jobs:
+  test:
+    name: unittests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python3
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: UNIT TESTS
+        run: |
+          python3 -m unittest texoopy/tests/tests.py
