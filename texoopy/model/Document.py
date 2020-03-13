@@ -23,7 +23,7 @@ class Document(Span):
             raise NotATeXooDocumentException('Supplied JSON is not a valid TeXoo document.')
 
         annotations = []
-        for json_data_annotation in json_data.get('annotations'):
+        for json_data_annotation in json_data.get('annotations', []):
             annotations.append(Annotation.from_json(json_data_annotation))
         json_data['annotations'] = annotations
 
