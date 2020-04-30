@@ -17,10 +17,13 @@ class Annotation(Span):
         json_data = copy.deepcopy(json_data)
         from texoopy.model.MentionAnnotation import MentionAnnotation
         from texoopy.model.NamedEntityAnnotation import NamedEntityAnnotation
+        from texoopy.model.SectionAnnotation import SectionAnnotation
         if json_data['class'] == 'MentionAnnotation':
             return MentionAnnotation.from_json(json_data)
         elif json_data['class'] == 'NamedEntityAnnotation':
             return NamedEntityAnnotation.from_json(json_data)
+        elif json_data['class'] == 'SectionAnnotation':
+            return SectionAnnotation.from_json(json_data)
         else:
             raise (Exception("Annotation type not supported!"))
 
