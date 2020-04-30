@@ -16,6 +16,8 @@ The goal is not to have a holistic representation of the full TeXoo model but ra
 | Annotation            | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | MentionAnnotation     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | NamedEntityAnnotation | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| SectionAnnotation     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
 
 :broken_heart: = Implemented but untested
 
