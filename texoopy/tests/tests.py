@@ -3,6 +3,7 @@ import json
 import os
 import unittest
 
+from ..model.SectionAnnotation import SectionAnnotation
 from ..model.Annotation import Annotation
 from ..model.Document import Document, NotATeXooDocumentException
 from ..model.MentionAnnotation import MentionAnnotation
@@ -11,6 +12,7 @@ from ..model.Span import Span
 from ..model.Dataset import Dataset
 
 TESTDATA_FILENAME = os.path.join(os.path.dirname(__file__), 'res', 'texoo_dataset.json')
+SECTION_ANNOTATION_TESTDATA_FILENAME = os.path.join(os.path.dirname(__file__), 'res', 'pubmedsection_example.json')
 
 
 class DatasetTest(unittest.TestCase):
@@ -168,6 +170,38 @@ class NamedEntityAnnotationTest(unittest.TestCase):
         self.assertEqual(self.named_entity_ann_json_dict, json.loads(self.named_entity_ann.to_json()))
 
     def test_named_ann_toJson_mutability(self):
+        pass  # TODO IMPLEMENT ME
+
+
+class SectionAnnotationTest(unittest.TestCase):
+
+    def setUp(self) -> None:
+        with open(SECTION_ANNOTATION_TESTDATA_FILENAME, 'r') as test_file:
+            self.section_ann_json_dict = json.load(test_file)['annotations'][0]
+            self.section_ann = Annotation.from_json(self.section_ann_json_dict)
+
+    def test_section_ann_class(self):
+        self.assertIsInstance(self.section_ann, SectionAnnotation)
+
+    def test_section_ann_begin(self):
+        self.assertEqual(0, self.section_ann.begin)
+
+    def test_section_ann_length(self):
+        self.assertEqual(818, self.section_ann.length)
+
+    def test_section_ann_text(self):
+        self.assertIsNone(None, self.section_ann.text)
+
+    def test_section_ann_source(self):
+        self.assertEqual("GOLD", self.section_ann.source)
+
+    def test_section_ann_confidence(self):
+        self.assertEqual(1.0, self.section_ann.confidence)
+
+    def test_section_ann_to_json(self):
+        self.assertEqual(self.section_ann_json_dict, json.loads(self.section_ann.to_json()))
+
+    def test_section_ann_toJson_mutability(self):
         pass  # TODO IMPLEMENT ME
 
 
