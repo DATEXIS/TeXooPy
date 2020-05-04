@@ -12,7 +12,7 @@ setuptools.setup(
     name='texoopy',
     license='',
     description='TeXooPy (texoopy) is a Python module that tackles the handling of TeXoo style JSON data.',
-    version='v0.1.0',
+    version='v0.2.0',
     long_description=README,
     url='https://github.com/DATEXIS/TeXooPy',
     packages=setuptools.find_packages(),
