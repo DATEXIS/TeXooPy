@@ -11,7 +11,8 @@ class Span(object):
 
     def to_texoo_dict(self) -> dict:
         content = copy.deepcopy(self.__dict__)
-        content.pop('uid')
+        if self.uid is None:
+            content.pop('uid')
         return content
 
     @classmethod
