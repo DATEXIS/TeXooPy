@@ -19,8 +19,8 @@ class Dataset:
             dataset.documents.append(Document.from_json(doc_json_data))
         return dataset
 
-    def to_json(self):
-        return json.dumps(self.to_texoo_dict(), default=lambda o: o.to_texoo_dict())
+    def to_json(self, ensure_ascii: bool = True):
+        return json.dumps(self.to_texoo_dict(), default=lambda o: o.to_texoo_dict(), ensure_ascii=ensure_ascii)
 
     def __str__(self):
         return "Dataset {}, name: {}, language: {}, # documents: {}".format(
