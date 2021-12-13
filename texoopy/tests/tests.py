@@ -81,7 +81,7 @@ class DocumentTest(unittest.TestCase):
         self.assertEqual("I am very short and do contain öä?@ß.", self.dataset.documents[2].text)
 
     def test_document_annotation_count(self):
-        self.assertEqual(3, len(self.dataset.documents[0].annotations))
+        self.assertEqual(4, len(self.dataset.documents[0].annotations))
 
     def test_illegal_teXoo_json_exception(self):
         with self.assertRaises(NotATeXooDocumentException):
@@ -142,8 +142,11 @@ class NamedEntityAnnotationTest(unittest.TestCase):
 
     def setUp(self) -> None:
         with open(TESTDATA_FILENAME, 'r') as test_file:
-            self.named_entity_ann_json_dict = json.load(test_file)['documents'][0]['annotations'][2]
+            test_file_json = json.load(test_file)
+            self.named_entity_ann_json_dict = test_file_json['documents'][0]['annotations'][2]
             self.named_entity_ann = Annotation.from_json(self.named_entity_ann_json_dict)
+            self.named_entity_ann_with_type_json_dict = test_file_json['documents'][0]['annotations'][3]
+            self.named_entity_ann_with_type = Annotation.from_json(self.named_entity_ann_with_type_json_dict)
 
     def test_named_ann_class(self):
         self.assertIsInstance(self.named_entity_ann, NamedEntityAnnotation)
@@ -168,6 +171,15 @@ class NamedEntityAnnotationTest(unittest.TestCase):
 
     def test_named_ann_to_json(self):
         self.assertEqual(self.named_entity_ann_json_dict, json.loads(self.named_entity_ann.to_json()))
+
+    def test_named_ann_with_type_to_json(self):
+        self.assertEqual(self.named_entity_ann_with_type_json_dict, json.loads(self.named_entity_ann_with_type.to_json()))
+
+    def test_named_ann_type_set(self):
+        self.assertEqual("PERSON", self.named_entity_ann_with_type.type)
+
+    def test_named_ann_type_unset(self):
+        self.assertEqual(None, self.named_entity_ann.type)
 
     def test_named_ann_toJson_mutability(self):
         pass  # TODO IMPLEMENT ME
