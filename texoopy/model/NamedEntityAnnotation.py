@@ -7,6 +7,7 @@ from .Annotation import Annotation
 class NamedEntityAnnotation(Annotation):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.type: str = kwargs.get('type')
         self.refId: str = kwargs.get('refId')
         # it is not safe to aggregate refId to Annotation (see original data model)
 
@@ -23,4 +24,6 @@ class NamedEntityAnnotation(Annotation):
         content = super().to_texoo_dict()
         content['class'] = 'NamedEntityAnnotation'
         content['candidates'] = []
+        if self.type is None:
+            content.pop('type')
         return content

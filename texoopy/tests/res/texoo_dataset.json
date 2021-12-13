@@ -43,6 +43,17 @@
           "confidence": 1.0,
           "refId": "TestRefId01",
           "candidates": []
+        },
+        {
+          "class": "NamedEntityAnnotation",
+          "begin": 67,
+          "length": 5,
+          "text": "König",
+          "type": "PERSON",
+          "source": "GOLD",
+          "confidence": 1.0,
+          "refId": "TestRefId01",
+          "candidates": []
         }
       ]
     },
